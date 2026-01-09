@@ -11,8 +11,11 @@ Dataset
 Installation
 ,
 Usage
+,
 Model Performance
+,
 Contributing
+,
 License
 
 **Overview**
