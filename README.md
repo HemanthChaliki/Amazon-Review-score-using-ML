@@ -1,55 +1,83 @@
-Amazon Review Score Prediction
+# Amazon Review Score Prediction
 
-Description:
-This project predicts the score levels (low, medium, high) of Amazon reviews using metadata and review text. The dataset, sourced from Kaggle, contains over 500,000 reviews for training and 5,000 reviews for testing. The project leverages machine learning to classify reviews into score levels, achieving an accuracy of 84%.
+## What is This Project?
 
-Table of Contents
-Overview
-Dataset
-Installation
-Usage
-Model Performance
-Contributing
-License
+This project uses a computer program to automatically figure out if an Amazon product review has a low, medium, or high score. It looks at what people wrote in their reviews and other information about the reviews to make this prediction. We used more than 500,000 reviews to teach the program, and it can correctly predict the score level 84% of the time.
 
-Overview
-The goal of this project is to predict the score_level of Amazon reviews (low, medium, or high). Using various data preprocessing techniques and machine learning algorithms, the model was trained to predict the score level based on the review's metadata and text. The project achieved 84% accuracy on the test dataset.
+## Table of Contents
+- [What Does This Do?](#what-does-this-do)
+- [What Data Do We Use?](#what-data-do-we-use)
+- [How to Set It Up](#how-to-set-it-up)
+- [How to Use It](#how-to-use-it)
+- [How Well Does It Work?](#how-well-does-it-work)
+- [Want to Help?](#want-to-help)
+- [License](#license)
 
-Dataset
-The dataset is sourced from Kaggle and consists of the following files:
+## What Does This Do?
 
-foods_training.csv: Contains 518,358 reviews with associated score_level for training.
-foods_testing.csv: Contains 5,000 reviews for testing without score_level. The task is to predict these values.
-sample_submission.csv: A template for Kaggle submission.
+The main purpose of this project is to guess whether an Amazon review will have a low, medium, or high score. We clean up the review text and use special computer programs (called machine learning) to learn patterns from past reviews. Then the program can look at new reviews and predict what score level they should have. Our program got the right answer 84 out of 100 times when we tested it.
 
-The fields in the dataset include:
-ID - Unique identifier for the review.
-productID - Unique identifier for the product.
-userId - Unique identifier for the user.
-helpfulness - Helpfulness rating for the review.
-summary - Summary of the review.
-text - Full review text.
-score_level - Low, medium, high (prediction goal).
+## What Data Do We Use?
 
-Installation
+We got our data from Kaggle, which is a website where people share datasets. The data comes in three files:
 
-Install the required dependencies:
+- **foods_training.csv**: This file has 518,358 reviews that we use to teach our program. Each review already has a score level (low, medium, or high) attached to it.
+- **foods_testing.csv**: This file has 5,000 reviews that we use to test our program. These reviews don't have score levels, so our job is to predict what they should be.
+- **sample_submission.csv**: This is a template file that shows how to format our predictions for submitting to Kaggle.
+
+Each review in the data has these pieces of information:
+- **ID** - A special number that identifies each review
+- **productID** - A special number that identifies which product the review is about
+- **userId** - A special number that identifies who wrote the review
+- **helpfulness** - A rating showing how helpful other people found the review
+- **summary** - A short summary of what the review says
+- **text** - The full review text that the customer wrote
+- **score_level** - The answer we're trying to predict (low, medium, or high)
+
+## How to Set It Up
+
+First, you need to install the computer programs (called libraries) that this project needs. Open your terminal or command prompt and type:
+
+```bash
 pip install -r requirements.txt
+```
 
-Usage
+This will download and install all the necessary tools.
 
-Prepare the dataset:
-Download the dataset from Kaggle.
-Place the CSV files in the data/ folder.
+## How to Use It
 
-Run the model:
-python train_model.py
+Follow these steps:
 
-Make predictions on the test dataset:
-python predict.py --input data/foods_testing.csv --output submission.csv
+1. **Get the data files:**
+   - Go to Kaggle and download the dataset
+   - Put all the CSV files into a folder called `data` in your project
 
-Submit the submission.csv file to Kaggle for evaluation.
+2. **Train the program:**
+   - Open your terminal or command prompt
+   - Type this command:
+   ```bash
+   python train_model.py
+   ```
+   - This will teach the program how to predict score levels. It might take a few minutes.
 
-Model Performance
-The final model achieved an accuracy of 84% in predicting the score_level on the testing dataset.
+3. **Make predictions:**
+   - After training is done, use this command to predict scores for the test reviews:
+   ```bash
+   python predict.py --input data/foods_testing.csv --output submission.csv
+   ```
+   - This creates a file called `submission.csv` with all the predictions.
 
+4. **Submit your results:**
+   - Take the `submission.csv` file and upload it to Kaggle to see how well your predictions did.
+
+## How Well Does It Work?
+
+When we tested our program on new reviews it had never seen before, it correctly predicted the score level 84% of the time. This means out of 100 reviews, it got 84 right.
+
+## Want to Help?
+
+If you have ideas to make this project better, we'd love your help! Feel free to share your suggestions or improvements.
+
+## License
+
+Anyone can use this project for free. It's available under the MIT License.
