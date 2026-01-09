@@ -5,8 +5,11 @@ This project focuses on predicting the score category of Amazon product reviewsâ
 
 **Table of Contents**
 Overview
+,
 Dataset
+,
 Installation
+,
 Usage
 Model Performance
 Contributing
